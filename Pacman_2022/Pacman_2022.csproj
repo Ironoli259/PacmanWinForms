@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2F3AD1EA-27A2-41F3-A8BC-D56A219D71BB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Pacman_2022</RootNamespace>
+    <AssemblyName>Pacman_2022</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Behaviours\Chase_Behaviour.cs" />
+    <Compile Include="Classes\Behaviours\Dead_Behaviour.cs" />
+    <Compile Include="Classes\Behaviours\Follow_Behaviour.cs" />
+    <Compile Include="Classes\Behaviours\IBehaviour.cs" />
+    <Compile Include="Classes\Behaviours\Random_Behaviour.cs" />
+    <Compile Include="Classes\Behaviours\Scared_Behaviour.cs" />
+    <Compile Include="Classes\Dijkstra\AStar.cs" />
+    <Compile Include="Classes\Dijkstra\Node.cs" />
+    <Compile Include="Classes\Entities\Abstract_Entity.cs" />
+    <Compile Include="Classes\Entities\Booster.cs" />
+    <Compile Include="Classes\Entities\Direction.cs" />
+    <Compile Include="Classes\Entities\Dot.cs" />
+    <Compile Include="Classes\Entities\Empty_Tile.cs" />
+    <Compile Include="Classes\Entities\Fruit.cs" />
+    <Compile Include="Classes\Entities\Game Manager.cs" />
+    <Compile Include="Classes\Entities\Ghost.cs" />
+    <Compile Include="Classes\Entities\Ghost_Room.cs" />
+    <Compile Include="Classes\Entities\Living_Entity.cs" />
+    <Compile Include="Classes\Entities\Map.cs" />
+    <Compile Include="Classes\Entities\Pacman.cs" />
+    <Compile Include="Classes\Entities\RNG.cs" />
+    <Compile Include="Classes\Entities\Update_Ghost_Behaviour.cs" />
+    <Compile Include="Classes\Entities\Wall.cs" />
+    <Compile Include="Classes\States\IState.cs" />
+    <Compile Include="Classes\States\Normal_State.cs" />
+    <Compile Include="Classes\States\Super_State.cs" />
+    <Compile Include="Form_Exit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Exit.Designer.cs">
+      <DependentUpon>Form_Exit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Main.Designer.cs">
+      <DependentUpon>Form_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form_Exit.resx">
+      <DependentUpon>Form_Exit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Main.resx">
+      <DependentUpon>Form_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Classes\resources\1033\setup.rll" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Classes\resources\Actions-view-refresh-icon %281%29.png" />
+    <Content Include="Classes\resources\Actions-view-refresh-icon.png" />
+    <Content Include="Classes\resources\Blue_Ghost_Down.png" />
+    <Content Include="Classes\resources\Blue_Ghost_Left.png" />
+    <Content Include="Classes\resources\Blue_Ghost_None.png" />
+    <Content Include="Classes\resources\Blue_Ghost_Right.png" />
+    <Content Include="Classes\resources\Blue_Ghost_Up.png" />
+    <Content Include="Classes\resources\Button-Refresh.png" />
+    <Content Include="Classes\resources\Dead_Ghost_Down.png" />
+    <Content Include="Classes\resources\Dead_Ghost_Left.png" />
+    <Content Include="Classes\resources\Dead_Ghost_None.png" />
+    <Content Include="Classes\resources\Dead_Ghost_Right.png" />
+    <Content Include="Classes\resources\Dead_Ghost_Up.png" />
+    <Content Include="Classes\resources\Dialog-error-round.svg.png" />
+    <Content Include="Classes\resources\Exit-icon.png" />
+    <Content Include="Classes\resources\Fruit_Apple.png" />
+    <Content Include="Classes\resources\Fruit_Cherry.png" />
+    <Content Include="Classes\resources\Fruit_Strawberry.png" />
+    <Content Include="Classes\resources\Map.txt" />
+    <Content Include="Classes\resources\Orange_Ghost_Down.png" />
+    <Content Include="Classes\resources\Orange_Ghost_Left.png" />
+    <Content Include="Classes\resources\Orange_Ghost_None.png" />
+    <Content Include="Classes\resources\Orange_Ghost_Right.png" />
+    <Content Include="Classes\resources\Orange_Ghost_Up.png" />
+    <Content Include="Classes\resources\Pacman_Down.png" />
+    <Content Include="Classes\resources\Pacman_Left.png" />
+    <Content Include="Classes\resources\Pacman_None.png" />
+    <Content Include="Classes\resources\Pacman_Right.png" />
+    <Content Include="Classes\resources\Pacman_Up.png" />
+    <Content Include="Classes\resources\Pink_Ghost_Down.png" />
+    <Content Include="Classes\resources\Pink_Ghost_Left.png" />
+    <Content Include="Classes\resources\Pink_Ghost_None.png" />
+    <Content Include="Classes\resources\Pink_Ghost_Right.png" />
+    <Content Include="Classes\resources\Pink_Ghost_Up.png" />
+    <Content Include="Classes\resources\Red_Ghost_Down.png" />
+    <Content Include="Classes\resources\Red_Ghost_Left.png" />
+    <Content Include="Classes\resources\Red_Ghost_None.png" />
+    <Content Include="Classes\resources\Red_Ghost_Right.png" />
+    <Content Include="Classes\resources\Red_Ghost_Up.png" />
+    <Content Include="Classes\resources\Scared2_Ghost_Down.png" />
+    <Content Include="Classes\resources\Scared2_Ghost_Left.png" />
+    <Content Include="Classes\resources\Scared2_Ghost_None.png" />
+    <Content Include="Classes\resources\Scared2_Ghost_Right.png" />
+    <Content Include="Classes\resources\Scared2_Ghost_UP.png" />
+    <Content Include="Classes\resources\Scared_Ghost_Down.png" />
+    <Content Include="Classes\resources\Scared_Ghost_Left.png" />
+    <Content Include="Classes\resources\Scared_Ghost_None.png" />
+    <Content Include="Classes\resources\Scared_Ghost_Right.png" />
+    <Content Include="Classes\resources\Scared_Ghost_UP.png" />
+    <Content Include="Classes\resources\Sounds\game_ending.wav" />
+    <Content Include="Classes\resources\Sounds\game_over.wav" />
+    <Content Include="Classes\resources\Sounds\game_winner.wav" />
+    <Content Include="Classes\resources\Sounds\ghost-dead.mp3" />
+    <Content Include="Classes\resources\Sounds\pacman_background.wav" />
+    <Content Include="Classes\resources\Sounds\pacman_beginning.wav" />
+    <Content Include="Classes\resources\Sounds\pacman_eatBooster.wav" />
+    <Content Include="Classes\resources\Sounds\pacman_eatDot.wav" />
+    <Content Include="Classes\resources\Sounds\pacman_eaten.wav" />
+    <Content Include="Classes\resources\Sounds\pacman_eatFruit.wav" />
+    <Content Include="Classes\resources\Sounds\pacman_eatghost.wav" />
+    <Content Include="Classes\resources\Sounds\pacman_eatingDot.wav" />
+    <Content Include="Classes\resources\Sounds\pacman_ghosts_scared.wav" />
+    <Content Include="Classes\resources\Title.png" />
+    <Content Include="Classes\resources\Yellow_Ghost.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
